@@ -18,7 +18,7 @@
             <!-- <div class="form-group">
                 <input type="password" class="form-control" placeholder="Confirm Password" required="">
             </div> -->
-
+            <input type="hidden" name="register[role]" id="editId" value="1">
             <button type="submit" class="form-button button-l margin-b">Sign Up</button>
 
             <a class="text-darkyellow" href="/login"><small>Sign In</small></a>
