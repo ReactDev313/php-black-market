@@ -12,11 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for test1
-CREATE DATABASE IF NOT EXISTS `test1` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `test1`;
+-- Dumping database structure for EbU84PYSiv
+CREATE DATABASE IF NOT EXISTS `EbU84PYSiv` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `EbU84PYSiv`;
 
--- Dumping structure for table test1.items
+-- Dumping structure for table EbU84PYSiv.items
 CREATE TABLE IF NOT EXISTS `items` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `IP` varchar(64) CHARACTER SET utf8 DEFAULT '',
@@ -26,13 +26,13 @@ CREATE TABLE IF NOT EXISTS `items` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='Items table';
 
--- Dumping data for table test1.items: ~1 rows (approximately)
+-- Dumping data for table EbU84PYSiv.items: ~1 rows (approximately)
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
 REPLACE INTO `items` (`id`, `IP`, `user_name`, `pwd`, `price`) VALUES
 	(8, '10.10.10.10', 'asdf', 'adf', '12');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 
--- Dumping structure for table test1.purchase
+-- Dumping structure for table EbU84PYSiv.purchase
 CREATE TABLE IF NOT EXISTS `purchase` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
@@ -40,13 +40,13 @@ CREATE TABLE IF NOT EXISTS `purchase` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table test1.purchase: ~1 rows (approximately)
+-- Dumping data for table EbU84PYSiv.purchase: ~1 rows (approximately)
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
 REPLACE INTO `purchase` (`id`, `user_id`, `item_id`) VALUES
 	(12, 1, 8);
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 
--- Dumping structure for table test1.users
+-- Dumping structure for table EbU84PYSiv.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL DEFAULT '',
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='users table';
 
--- Dumping data for table test1.users: ~0 rows (approximately)
+-- Dumping data for table EbU84PYSiv.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `email`, `username`, `hashed_password`, `role`, `balance`) VALUES
 	(1, 'admin@hotmail.com', 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0);

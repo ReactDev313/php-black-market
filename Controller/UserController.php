@@ -51,6 +51,7 @@ class UserController
             $user = new User();
             $user->saveAttributes($_POST["register"]);
             $user->setHashedPassword(md5($_POST["register"]['password']));
+            $user->setUserRole(1);
             $user->save();
             header("Location: /login");
         } else {
