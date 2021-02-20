@@ -24,12 +24,15 @@ CREATE TABLE IF NOT EXISTS `items` (
   `pwd` varchar(128) CHARACTER SET utf8 DEFAULT '',
   `price` varchar(128) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='Items table';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COMMENT='Items table';
 
--- Dumping data for table EbU84PYSiv.items: ~1 rows (approximately)
+-- Dumping data for table EbU84PYSiv.items: ~4 rows (approximately)
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
 REPLACE INTO `items` (`id`, `IP`, `user_name`, `pwd`, `price`) VALUES
-	(8, '10.10.10.10', 'asdf', 'adf', '12');
+	(8, '10.10.10.10', 'asdf', 'adf', '123'),
+	(20, '10.10.10.10', 'aaa@gamil.com', 'aaa123', '120'),
+	(21, '10.10.10.11', 'aaa1@gamil.com', 'aaa1231', '0'),
+	(22, '10.10.10.12', 'aaa2@gamil.com', 'aaa1232', '0');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 
 -- Dumping structure for table EbU84PYSiv.purchase
@@ -38,12 +41,13 @@ CREATE TABLE IF NOT EXISTS `purchase` (
   `user_id` int(11) unsigned NOT NULL,
   `item_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table EbU84PYSiv.purchase: ~1 rows (approximately)
+-- Dumping data for table EbU84PYSiv.purchase: ~2 rows (approximately)
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
 REPLACE INTO `purchase` (`id`, `user_id`, `item_id`) VALUES
-	(12, 1, 8);
+	(12, 1, 8),
+	(13, 1, 8);
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 
 -- Dumping structure for table EbU84PYSiv.users
@@ -53,15 +57,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(50) NOT NULL DEFAULT '',
   `hashed_password` varchar(255) NOT NULL DEFAULT '',
   `role` tinyint(1) NOT NULL DEFAULT 1 COMMENT '0: admin 1: user',
-  `balance` double(22,0) NOT NULL DEFAULT 0,
+  `balance` double NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='users table';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='users table';
 
--- Dumping data for table EbU84PYSiv.users: ~0 rows (approximately)
+-- Dumping data for table EbU84PYSiv.users: ~6 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `email`, `username`, `hashed_password`, `role`, `balance`) VALUES
-	(1, 'admin@hotmail.com', 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0);
+	(1, 'admin@hotmail.com', 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0),
+	(2, 'admin1@hotmail.com', 'admin1@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 1, 0),
+	(3, 'admin3@hotmail.com', 'admin3@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 1, 0),
+	(4, 'admin4@hotmail.com', 'admin4@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 1, 0),
+	(5, 'admin5@hotmail.com', 'admin5@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 1, 0),
+	(6, 'admin11@hotmail.com', 'admin11@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 1, 0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
