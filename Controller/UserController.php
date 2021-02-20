@@ -15,6 +15,7 @@ class UserController
             $user = User::getOne(['email' => $_POST["login"]["email"]]);
             if ($user && $user->getHashedPassword() === md5($_POST["login"]["password"])) {
                 $_SESSION["user_id"] = $user->getId();
+                $_SESSION["user_role"] = !$user->getUserRole();
                 $items = Item::get();
                 $_SESSION['items'] = $items;  
                 header("Location: /");
@@ -31,6 +32,7 @@ class UserController
 
     function logout() {
         $_SESSION["user_id"] = "";
+        $_SESSION["user_role"] = "";
         session_destroy();
         header("Location: /login");
     }

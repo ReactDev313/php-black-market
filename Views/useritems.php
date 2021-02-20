@@ -24,6 +24,14 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom ">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+          <?php 
+              if($_SESSION["user_role"]) {
+            ?>
+            <li class="nav-item ">
+              <a class="nav-link text-light" href="/admin">Admin Page<span class="sr-only">(current)</span></a>
+            </li>
+            <?php } ?>
             <li class="nav-item active">
               <a class="nav-link text-light" href="/logout">Logout <span class="sr-only">(current)</span></a>
             </li>

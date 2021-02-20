@@ -27,16 +27,37 @@ class AdminController
   }
 
   function additem() {
-    // echo($_POST["additem"]["user_name"]);
-    if (isset($_POST["additem"])) {
-      $item = new Item();
-      $item->saveAttributes($_POST["additem"]);
-      $item->setIP(($_POST["additem"]['IP']));
-      $item->setUsername(($_POST["additem"]['user_name']));
-      $item->setPwd(($_POST["additem"]['pwd']));
-      $item->setPrice(($_POST["additem"]['price']));
-      $item->save();
-      header("Location: /admin");
+    //  echo($_POST["items_len"]);
+    if (isset($_POST["items_len"])) {
+      for($i = 0; $i < $_POST["items_len"]; $i++ ) {
+          $ip = $_POST["IP_".$i];
+          $user_name = $_POST["user_name_".$i];
+          $pwd = $_POST["pwd_".$i];
+          $price = $_POST["price"];
+
+          $insertArr = [
+            'IP' => $ip,
+            'user_name' => $user_name,
+            'pwd' => $pwd,
+            'price' => $price
+          ];
+          $item = new Item();
+          $item->saveAttributes($insertArr);
+          $item->setIP($ip);
+          $item->setUsername($user_name);
+          $item->setPwd($pwd);
+          $item->setPrice($price);
+          $item->save();
+          header("Location: /admin");
+      }
+      // $item = new Item();
+      // $item->saveAttributes($_POST["additem"]);
+      // $item->setIP(($_POST["additem"]['IP']));
+      // $item->setUsername(($_POST["additem"]['user_name']));
+      // $item->setPwd(($_POST["additem"]['pwd']));
+      // $item->setPrice(($_POST["additem"]['price']));
+      // $item->save();
+      // header("Location: /admin");
     } else {
         require_once "Views/admin.php";
     }
