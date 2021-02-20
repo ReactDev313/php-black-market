@@ -81,17 +81,17 @@
                       <input name="desc0" placeholder="price" class="form-control bg-dark text-light"  value=<?php echo $item->getPrice();?> readonly></input>
                   </td>
                   <td data-name="del">
-                            <a  href="javascript:void(0);" data-toggle="modal" data-target="#update_modal<?php echo $item->getID()?>" class="edit" title="Edit" ><i class="material-icons">&#xE254;</i></a>
+                            <a  href="javascript:void(0);" data-toggle="modal" data-target="#update_modal<?php echo $item->getId()?>" class="edit" title="Edit" ><i class="material-icons">&#xE254;</i></a>
 
-                            <a href="/deleteItem?id=<?php echo $item->getID();?>" onclick="return confirm('Are you sure to delete this user?');"class="delete" title="Delete"> <i class="material-icons">&#xE872;</i> </a>
+                            <a href="/deleteItem?id=<?php echo $item->getId();?>" onclick="return confirm('Are you sure to delete this user?');"class="delete" title="Delete"> <i class="material-icons">&#xE872;</i> </a>
                   </td>
                 </tr>
                 <!-- Edit Item Modal -->
-                <div class="modal fade" id="update_modal<?php echo $item->getID()?>" tabindex="-1" role="dialog" aria-labelledby="update_modal_title<?php echo $item->getID()?>" aria-hidden="true">
+                <div class="modal fade" id="update_modal<?php echo $item->getId()?>" tabindex="-1" role="dialog" aria-labelledby="update_modal_title<?php echo $item->getId()?>" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="update_modal_title<?php echo $item->getID()?>">EDIT ITEM</h5>
+                        <h5 class="modal-title" id="update_modal_title<?php echo $item->getId()?>">EDIT ITEM</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -114,7 +114,7 @@
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <input type="hidden" name="updateItem[id]" id="editId" value="<?php echo $item->getID();?>">
+                        <input type="hidden" name="updateItem[id]" id="editId" value="<?php echo $item->getId();?>">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Update Item</button>
                       </div>
