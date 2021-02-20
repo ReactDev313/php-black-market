@@ -31,13 +31,14 @@ class Router
             $adminController->updateItem();
             return;
         } elseif (strpos($path, '/deleteItem') === 0) {
-            $adminController->deleteItem();
+            $adminController->deleteItem($_GET["id"]);
             return;
         } elseif (strpos($path, '/getPurchases') === 0) {
             $buyItemController->getPurchases();
             return;
         } elseif (strpos($path, '/buyItem') === 0) {
-            $buyItemController->insertPurchase();
+            echo($_GET['item_id']);
+            $buyItemController->insertPurchase($_GET['item_id']);
             return;
         }
         

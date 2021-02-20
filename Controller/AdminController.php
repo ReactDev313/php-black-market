@@ -81,11 +81,11 @@ class AdminController
     }
       return null;   
   }
-  function deleteItem() {
-    if (isset($_GET["id"])) {
-      echo($_GET["id"]);
+  function deleteItem($id) {
+    if ($id) {
+      // echo($_GET["id"]);
       $item = new Item();
-      $item->saveAttributes(['id'=>$_GET["id"]]);
+      $item->saveAttributes(['id'=>$id]);
       $item->remove();
       header("Location: /admin");
     } else {

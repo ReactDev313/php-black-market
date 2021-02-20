@@ -26,12 +26,13 @@ class BuyItemController
         }
         return null;
     }
-    function insertPurchase() {
+    function insertPurchase($item_id) {
       if (isset($_SESSION["user_id"])) {
         $purchase = new Purchase();
-        $purchase->saveAttributes(['item_id' => $_GET["item_id"]]);
+        // $purchase->saveAttributes(['item_id' => $_GET["item_id"]]);
+        $purchase->saveAttributes(['item_id' => $item_id]);
         $purchase->setUserID($_SESSION["user_id"]);
-        $purchase->setItemID($_GET["item_id"]);
+        $purchase->setItemID($item_id);
         $purchase->save();
         header("Location: /useritems");
       } else {
